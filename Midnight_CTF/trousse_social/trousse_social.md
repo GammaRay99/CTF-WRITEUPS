@@ -12,10 +12,10 @@ After some research online, I came across this [git repo](https://github.com/The
 ## Finding the code
 
 If you launch the app on an emulator, and try to enter a key, a pop-up will spawn "Wrong Key".
-[](./img/wrong-key.png)
+![wrong key](./img/wrong-key.png)
 
 We can now try to look for occurence of this string in all the files, using visual studio code, we get:
-[](./img/search.png)
+![search](./img/search.png)
 
 When we open `./src/com/example/troussesocial/MainActivity.java` we can now see the code behind the register button !
 
