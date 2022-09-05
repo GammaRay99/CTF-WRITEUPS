@@ -1,4 +1,4 @@
-# Movie star
+# Movie star - Catégorie REVERSE
 
 **Disclaimer: Je n'ai pas participé au ctf Barbhack 2022, mais des collègues ont pu me fournir ce challenge quelques jours après l'évent. Voici comment je l'ai résolu**
 
