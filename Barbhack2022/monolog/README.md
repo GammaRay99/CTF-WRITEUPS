@@ -2,6 +2,8 @@
 
 **Disclaimer: Je n'ai pas participé au ctf Barbhack 2022, mais des collègues ont pu me fournir ce challenge quelques jours après l'évent. Voici comment je l'ai résolu**
 
+**Disclaimer 2: étant donné que je n'étais pas présent durant l'évent, ma solution est incomplète vu qu'il manque la partie remote.**
+
 ## Analyse statique
 
 Le comportement normal du binaire :
