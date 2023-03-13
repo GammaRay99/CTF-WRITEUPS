@@ -13,9 +13,9 @@ Files: [pwnmymenu.tgz](./pwnmymenu.tgz)
 ## Analysis
 
 We were given the entire sources of the challenge (wich is kinda weird), so understanding what to exploit is pretty easy:
-	- We need to pwn "lvl1" 5 times
-	- "lvl2" 5 times
-	- and "lvl3" 10 times
+- We need to pwn "lvl1" 5 times
+- "lvl2" 5 times
+- and "lvl3" 10 times
 
 For each level, it's a simple ret2win with the size of the stack randomized in a range between [1; 511]. For the level 2 and 3, 2 other random variables are introduced.
 
