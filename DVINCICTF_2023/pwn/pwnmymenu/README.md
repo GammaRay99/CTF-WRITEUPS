@@ -161,4 +161,42 @@ def payload_level3(n):
 
 ## Script solve
 
-You can find my entire script [here](./solve.py). When putting everything together I had a lot of trouble with the IO, sometimes it flushes when i'm supposed to read the base64 of the binary I tried to manage it, but it was not really working. I just had to restart the script until it didn't crashed to flag.
+You can find my entire script [here](./solve.py). When putting everything together I had a lot of trouble with the IO, sometimes it flushes when i'm supposed to read the base64 of the binary I tried to manage it, but it was not really working. I just restarted the script until it didn't crashed instead of fixing it. (It also takes a lot of time because I had a hard time reading the base64 so I just did a `recvrepeat(2)`)
+
+```
+python3 solve.py
+[+] Opening connection to pwn.dvc.tf on port 8890: Done
+PWNING LVL 1
+Reading file 0... Sending payload n°0
+<snip>
+Reading file 4... Sending payload n°4
+PWING LVL 2
+Reading file 0... Sending payload n°0
+<snip>
+Reading file 4... Sending payload n°4
+PWNING LVL 3
+Reading file 0... Sending payload n°0
+<snip>
+Reading file 9... Sending payload n°9
+[*] Switching to interactive mode
+Submenu:
+Enter your payload:
+---------------------
+<snip
+---------------------
+[+]    Level 1 finished successfully !
+---------------------
+<snip>
+---------------------
+[+]    Level 2 finished successfully !
+---------------------
+---------------------
+<snip>
+---------------------
+---------------------
+[+]    Level 3 finished successfully !
+[+]    Flag is: `dvCTF{w04h_y0u_d3f3473d_my_m3nu}`
+[*] Got EOF while reading in interactive
+```
+
+Flag: `dvCTF{w04h_y0u_d3f3473d_my_m3nu}`
