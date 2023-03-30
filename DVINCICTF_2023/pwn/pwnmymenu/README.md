@@ -1,6 +1,13 @@
-# PWNMYMENU
+# DaVinciCTF 2023 — Pwn Write-up : pwnmymenu
 
-### 392 pts
+
+From Saturday, March 11 to Sunday, March 12, 2023, the DaVinci CTF was organized by the students of the Pôle Léonard de Vinci. Our team finished 10th overall out of 289 teams.
+
+![](./data/dvinci.png)
+
+Let’s go for a writeup of pwnmymenu, a pretty easy challenge in Pwn category.
+
+Thanks to Valekoz for creating this challenge and to all DaVinciCode for managing this CTF!
 
 ```
 Do you like automation ? Well, you will have to automate some ret2win in order to get the flag :)

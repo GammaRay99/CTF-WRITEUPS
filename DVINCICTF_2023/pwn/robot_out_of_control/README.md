@@ -1,6 +1,13 @@
-# Robot out of control
+# DaVinciCTF 2023 — Pwn Write-up : Robots out of control
 
-### 464 pts
+From Saturday, March 11 to Sunday, March 12, 2023, the DaVinci CTF was organized by the students of the Pôle Léonard de Vinci. Our team finished 10th overall out of 289 teams.
+
+
+![](./data/dvinci.png)
+
+Let’s go for a writeup of the Robots out of control challenge in Pwn category.
+
+Thanks to the DaVinciCode team for creating this challenge and managing the CTF!
 
 ```
 One of our warriors robot (called eva) has been corrupted by an unknow enemy. We have lost the control and he is now in berserk mode. Hopefully we have developped a rescue terminal in case some issue happen. You have to disable the berserk mode through the terminal, you can use all techniques you want. Here is the binary
