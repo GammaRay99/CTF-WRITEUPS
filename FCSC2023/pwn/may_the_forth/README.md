@@ -1,4 +1,4 @@
-# FCSC2023 - Pwn Write-up : May The Fourth
+# FCSC2023 - Pwn Write-up : May The Forth
 
 
 ![](./data/fcsc.png)
@@ -10,7 +10,7 @@ Un utilisateur de zForth refuse de mettre à jour son installation, car selon lu
 Saurez-vous le détromper en trouvant le flag dans l'environnement de l'interpréteur (variable FLAG) ?
 ```
 
-This was a really special challenge, to make it shorter, we have an interpreter of fourth, [zforth](https://github.com/zevv/zForth) without the last commit. This commit is called: `Fixed potental out of bound memory access in example linux PEEK syscall. Thanks cde!`, cde being the creator of the challenge, we know for sure this is what we are supposed to exploit.
+This was a really special challenge, to make it shorter, we have an interpreter of forth, [zforth](https://github.com/zevv/zForth) without the last commit. This commit is called: `Fixed potental out of bound memory access in example linux PEEK syscall. Thanks cde!`, cde being the creator of the challenge, we know for sure this is what we are supposed to exploit.
 
 There is also the diff with the commit in the [given source file](./src/zforth-src/tell.patch):
 ```c
