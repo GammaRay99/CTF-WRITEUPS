@@ -10,7 +10,7 @@ Un utilisateur de zForth refuse de mettre à jour son installation, car selon lu
 Saurez-vous le détromper en trouvant le flag dans l'environnement de l'interpréteur (variable FLAG) ?
 ```
 
-This was a really special challenge, to make it shorter, we have an interpreter of forth, [zforth](https://github.com/zevv/zForth) without the last commit. This commit is called: `Fixed potental out of bound memory access in example linux PEEK syscall. Thanks cde!`, cde being the creator of the challenge, we know for sure this is what we are supposed to exploit.
+This was a really special challenge, to make it shorter, we have an interpreter of forth, [zforth](https://github.com/zevv/zForth) **without the last commit**. This commit is called: `Fixed potental out of bound memory access in example linux PEEK syscall. Thanks cde!`, cde being the creator of the challenge, we know for sure this is what we are supposed to exploit.
 
 There is also the diff with the commit in the [given source file](./src/zforth-src/tell.patch):
 ```c
@@ -36,7 +36,7 @@ To start the challenge, we must launch the `zforth` binary with the `core.zf` fi
 
 I'm not gonna explain a lot about forth, but I watched a few tutorials to have a better understanding on how the language works.
 
-The most important is that forth is a stack-based language, which means that when I do:
+The most important is that forth is a **stack-based language**, which means that when I do:
 ```
 > 1337
 > 56
@@ -62,7 +62,7 @@ The vulnerable code is the one handling the `tell` operation, which works like t
 ```
 -> print 4 bytes at `dict`+0. Now I'll be honest, I still don't understand what the dict is, it seems to be something stocking words (equivalent of functions in forth) but I'm really not sure.
 
-As we can see in `tell.patch`, there is no check that `offset` is in range of the dict. Sooo we can read the content of any memory address as long as we know the offset between the target address and the dict address.
+As we can see in `tell.patch`, there is no check that `offset` is in range of the dict. Sooo we can read the content of **any memory address** as long as we know the **offset between the target address and the dict address**.
 
 ## 🧙🏼‍♂️ - Exploiting
 
@@ -76,7 +76,7 @@ Since I was having a hard time finding something, I wrote a script that tried to
 
 ![](./data/meme_bf.jpg)
 
-Looking at the dict position in gdb, we can see that just after it, there is a `jmp_buf` struct:
+Looking at the dict position in gdb, we can see that **just after it**, there is a `jmp_buf` struct:
 ```
 0x5655c170 <dict+4048>:	0x00000000	0x00000000	0x00000000	0x00000000
 0x5655c180 <dict+4064>:	0x00000000	0x00000000	0x00000000	0x00000000
@@ -89,13 +89,13 @@ Looking at the dict position in gdb, we can see that just after it, there is a `
 0x5655c1f0 <jmpbuf+48>:	0x00000000	0x00000000	0x00000000	0x00000000
 ```
 
-Leaking it remotely, this time there was also the stack leaks ! Even better we also have the PIE leak `0x5655b000` !
+Leaking it remotely, this time there was also the **stack leaks** ! Even better we also have the **PIE leak**: `0x5655b000` !
 
-Looking in ghidra, I found the offset between this leak and the dict which is `+416`, so now that we have the address of the dict and a leak of the stack, we can simply do `stack_leak - dict` to get the offset between the stack leak and the dict !
+Looking in ghidra, I found the **offset between** this leak and the dict which is `+416`, so now that we have the address of the dict and a leak of the stack, we can simply do `stack_leak - dict` to get the offset between the stack leak and the dict !
 
-The last step was to convert this into a negative offset, because for some reason when I tried to simply add the offset, it got transform into `0x80000000`, I still don't know why.
+The last step was to convert this into a **negative offset**, because for some reason when I tried to simply add the offset, it got transformed into `0x80000000`, I still don't really know why.
 
-Once we have the negative offset, we just have to read some bytes from this until finding the environement variables. I did not scripted this part and did it by hand because I was too hyped but yeah
+Once we have the negative offset, we just have to read some bytes from this until we find the **environement variables**. I did not scripted this part and did it by hand because I was too hyped :-)
 
 ```
 $ python3 exploit.py
