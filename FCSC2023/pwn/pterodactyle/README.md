@@ -7,10 +7,6 @@
 
 ```
 Vous devez afficher le contenu du fichier flag.txt.
-
-nc challenges.france-cybersecurity-challenge.fr 2102
-
-SHA256(pterodactyle) = ``b3ea6eaa018090141a7ff60e03a4dc84dbed2fdf615c04ffb1e410ae1fc5f412``.
 ```
 
 We are only given this [binary](./data/pterodactyle) file and no further instructions.
@@ -239,7 +235,7 @@ struct jmp_buf
 };
 ```
 
-# 🧙🏼‍♂️ - Exploiting
+## 🧙🏼‍♂️ - Exploiting
 
 Doing a bit of local python scripting, I was able to extract all of those information thanks to the cookie leak.
 
@@ -389,8 +385,10 @@ FCSC{17dc6f007f4149469fe3d361d5b1c7f9694f3ec363b26e051974540aa6eaf666}
 We got the flag !! 🥳
 
 
-# ✅ - Conclusion
+## ✅ - Conclusion
 
 Really interesting challenge, made me discover long jumps and do some cool tricks with the stack.
 
 Despite my error that cost me a lot of time, I was close enough and was able to solve it, even if I was kinda desesperate when I understood that I did not had stack leaks remotely. It was still interesting to brute force the xor key with the offset of the leak and rbp so it's fine and I ended up flagging with the correct way so it's fine :-)
+
+You can find the entire script I used [here](./exploit.py)
